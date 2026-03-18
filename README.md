@@ -1,35 +1,148 @@
-analysis of stock prices of Amazon, Google, Microsoft and Apple.
-step1: collecting the data and identifying changes overtime
-![image](https://github.com/user-attachments/assets/3e9e8bc0-32e3-4ac5-8690-13f2e26ffa2d)
-Step2: Descriptive Statistics about the Data of Apple
-<img width="671" alt="image" src="https://github.com/user-attachments/assets/ed3eed49-2006-42c1-afcf-df9fa6d7f996">
-Step3: Handling outliers and missing values
-step4: identify the closing prices
-<img width="758" alt="image" src="https://github.com/user-attachments/assets/8377877b-f950-40c6-9209-582e24ed1d8e">
-Step4: Analysis of Volume of sales of all the 4 stocks
-<img width="764" alt="image" src="https://github.com/user-attachments/assets/59103c21-fa9f-42cd-a501-9f26056faa3b">
-Step5: analysis of moving avaerage of stocks
-<img width="785" alt="image" src="https://github.com/user-attachments/assets/b1376ef3-7e71-4b24-a667-13b020d7b58e">
-Step6: Analysis of daily returns of stock average
-<img width="766" alt="image" src="https://github.com/user-attachments/assets/d9070b3b-ce4b-466c-ac2c-310684f891c2">
-Step7: Identifying correlation between different stocks using various graphical plots
-<img width="508" alt="image" src="https://github.com/user-attachments/assets/db063b98-b9c9-40c0-b0f2-0c02ffb982b3">
-<img width="513" alt="image" src="https://github.com/user-attachments/assets/9a6784a8-25e7-48fc-882d-e75e6e1a2fea">
-<img width="482" alt="image" src="https://github.com/user-attachments/assets/2ea2b4af-436d-4c66-82e6-1a46ca81aec9">
-<img width="794" alt="image" src="https://github.com/user-attachments/assets/57e5d6d4-4759-4ead-8d62-f4c8e9e3433f">
-<img width="761" alt="image" src="https://github.com/user-attachments/assets/ccb97cb6-c90f-4b15-95bb-100dbddd7939">
-Step8: Heatmap represntation of all the stocks
-<img width="781" alt="image" src="https://github.com/user-attachments/assets/0988767f-2c43-43ff-8c34-744b1071cde3">
-Step9: To understand how much value we put at risk by investing in a particular stock
-<img width="763" alt="image" src="https://github.com/user-attachments/assets/714b7889-3ec2-4ced-b8dd-6cb9b73fecb8">
-Step10: identifying closing price for apple
-<img width="718" alt="image" src="https://github.com/user-attachments/assets/71e20847-d834-4fa3-93ca-d2a2007221a4">
-Step11: closing price history of Apple in $
-<img width="765" alt="image" src="https://github.com/user-attachments/assets/a434c0c7-4706-4d73-864e-9eec61e7fbf8">
-Step12: Training and building the LSTM Model
-Step13: Create a test dataset and identify accuracy of model
-Step14: Make predictions and display valid predicted prices
-<img width="795" alt="image" src="https://github.com/user-attachments/assets/c0acdc84-9e24-4c86-9009-bded0b949fc9">
-Predictions made for Apple stocks
-<img width="453" alt="image" src="https://github.com/user-attachments/assets/cf5ec927-2720-4118-ada7-cdfd7faf2bd9">
+# 📈 Market Analysis Terminal
 
+A real-time stock market analysis dashboard with time-series technical indicators, built with **Streamlit**, **Plotly**, and **yfinance**.
+
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.32+-red)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+## Features
+
+- **Real-time market data** via yfinance (with simulated GBM fallback)
+- **Candlestick charts** with interactive zoom, pan, and hover
+- **9 Technical Indicators**: SMA, EMA, Bollinger Bands, VWAP, RSI, MACD, Volume
+- **8 Pre-loaded tickers**: AAPL, MSFT, NVDA, GOOGL, AMZN, TSLA, META, JPM
+- **Multiple timeframes**: 1W, 1M, 3M, 6M, 1Y, 2Y
+- **Period statistics**: Return, Volatility, Sharpe Ratio, Max Drawdown
+- **Dark terminal-style UI** with custom theming
+- **Auto-refresh** toggle for live monitoring
+
+## Quick Start (Local)
+
+```bash
+# Clone the repo
+git clone https://github.com/YOUR_USERNAME/stock-market-analysis.git
+cd stock-market-analysis
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate        # macOS/Linux
+# venv\Scripts\activate          # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the app
+streamlit run app.py
+```
+
+The app will open at `http://localhost:8501`.
+
+---
+
+## Deploy to Streamlit Community Cloud (Free)
+
+### Step 1 — Push to GitHub
+
+```bash
+cd stock-market-analysis
+
+# Initialize git repo
+git init
+git add .
+git commit -m "Initial commit: stock market analysis terminal"
+
+# Create repo on GitHub, then:
+git remote add origin https://github.com/YOUR_USERNAME/stock-market-analysis.git
+git branch -M main
+git push -u origin main
+```
+
+### Step 2 — Connect to Streamlit Cloud
+
+1. Go to [share.streamlit.io](https://share.streamlit.io)
+2. Sign in with your **GitHub** account
+3. Click **"New app"**
+4. Fill in:
+   - **Repository**: `YOUR_USERNAME/stock-market-analysis`
+   - **Branch**: `main`
+   - **Main file path**: `app.py`
+5. Click **"Deploy!"**
+
+Your app will be live at:
+```
+https://YOUR_USERNAME-stock-market-analysis.streamlit.app
+```
+
+### Step 3 — Done!
+
+Every time you push to `main`, Streamlit Cloud will automatically redeploy.
+
+---
+
+## Project Structure
+
+```
+stock-market-analysis/
+├── .streamlit/
+│   └── config.toml          # Streamlit theme & server config
+├── app.py                    # Main application
+├── requirements.txt          # Python dependencies
+├── .gitignore
+└── README.md
+```
+
+## How It Works
+
+| Component           | Technology                    |
+|----------------------|-------------------------------|
+| Frontend / UI        | Streamlit + Custom CSS        |
+| Charts               | Plotly (candlestick, subplots)|
+| Market Data          | yfinance API                  |
+| Fallback Data        | Geometric Brownian Motion     |
+| Technical Indicators | NumPy / Pandas (custom)       |
+
+### Technical Indicators Explained
+
+| Indicator        | Description                                                    |
+|------------------|----------------------------------------------------------------|
+| SMA (20, 50)     | Simple Moving Average — trend direction                        |
+| EMA (12, 26)     | Exponential Moving Average — weighted recent prices            |
+| Bollinger Bands  | Volatility envelope (±2σ around 20-period SMA)                 |
+| VWAP             | Volume-Weighted Average Price — institutional benchmark        |
+| RSI (14)         | Relative Strength Index — momentum (>70 overbought, <30 sold) |
+| MACD (12,26,9)   | Moving Average Convergence/Divergence — trend + momentum       |
+
+## Customization
+
+### Add more tickers
+
+Edit the `TICKERS` dict in `app.py`:
+
+```python
+TICKERS = {
+    "AAPL": "Apple Inc.",
+    "MSFT": "Microsoft",
+    # Add your own:
+    "AMD": "Advanced Micro Devices",
+    "NFLX": "Netflix Inc.",
+}
+```
+
+### Add API keys (optional)
+
+If you want to use premium data providers, create `.streamlit/secrets.toml`:
+
+```toml
+[api]
+alpha_vantage_key = "YOUR_KEY_HERE"
+polygon_key = "YOUR_KEY_HERE"
+```
+
+Access in code via `st.secrets["api"]["alpha_vantage_key"]`.
+
+---
+
+## License
+
+MIT — free for personal and commercial use.
